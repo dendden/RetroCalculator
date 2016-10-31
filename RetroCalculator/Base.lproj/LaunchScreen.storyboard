@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchbg" translatesAutoresizingMaskIntoConstraints="NO" id="tiC-9R-Qb0">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchground" translatesAutoresizingMaskIntoConstraints="NO" id="gJ9-Dh-RTa">
                                 <rect key="frame" x="0.0" y="586" width="414" height="150"/>
@@ -53,7 +53,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="tiC-9R-Qb0" secondAttribute="trailing" constant="-20" id="Hok-1i-fhn"/>
                             <constraint firstAttribute="trailing" secondItem="gJ9-Dh-RTa" secondAttribute="trailing" id="Ka6-L7-EOH"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="gJ9-Dh-RTa" secondAttribute="bottom" id="M1l-Vv-lqu"/>
-                            <constraint firstItem="tiC-9R-Qb0" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="kTH-AM-JEB"/>
+                            <constraint firstItem="tiC-9R-Qb0" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="kTH-AM-JEB"/>
                             <constraint firstItem="eHU-Zl-29z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="l7Y-h5-RFg"/>
                             <constraint firstItem="x0J-kX-Xkg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oCL-DQ-tKU"/>
                             <constraint firstItem="gJ9-Dh-RTa" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="v69-TQ-3cx"/>
