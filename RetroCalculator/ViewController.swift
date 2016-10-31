@@ -11,7 +11,23 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var counterLbl: UILabel!
     var btnSound: AVAudioPlayer!
+    
+    var runningNum = ""
+    
+    enum Operation: String {
+        case Divide = "/"
+        case Multiply = "*"
+        case Add = "+"
+        case Subtract = "-"
+        case Empty = "Empty"
+    }
+    
+    var currentOperation = Operation.Empty
+    var leftValStr = ""
+    var rightValStr = ""
+    var result = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +45,25 @@ class ViewController: UIViewController {
     
     @IBAction func numberPressed(sender: UIButton) {
         playSound()
+        
+        runningNum += "\(sender.tag)"
+        counterLbl.text = runningNum
+    }
+    
+    @IBAction func onMultiplyPressed(sender: UIButton) {
+        processOperation(operation: .Multiply)
+    }
+    @IBAction func onDividePressed(sender: UIButton) {
+        processOperation(operation: .Divide)
+    }
+    @IBAction func onAddPressed(sender: UIButton) {
+        processOperation(operation: .Add)
+    }
+    @IBAction func onSubtractPressed(sender: UIButton) {
+        processOperation(operation: .Subtract)
+    }
+    @IBAction func onEqualsPressed(sender: UIButton) {
+        processOperation(operation: currentOperation)
     }
     
     func playSound() {
@@ -36,6 +71,42 @@ class ViewController: UIViewController {
             btnSound.stop()
         }
         btnSound.play()
+    }
+    
+    func processOperation(operation: Operation) {
+        playSound()
+        
+        if currentOperation != Operation.Empty {
+            
+            if runningNum != "" {
+                rightValStr = runningNum
+                runningNum = ""
+                
+                switch currentOperation {
+                case .Multiply:
+                    result = "\(Double(leftValStr)! * Double(rightValStr)!)"
+                case .Divide:
+                    result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                case .Add:
+                    result = "\(Double(leftValStr)! + Double(rightValStr)!)"
+                case .Subtract:
+                    result = "\(Double(leftValStr)! - Double(rightValStr)!)"
+                default:
+                    result = "WTF?!"
+                }
+                
+                leftValStr = result
+                counterLbl.text = result
+            }
+            
+            currentOperation = operation
+            
+        } else {
+            // operator pressed for 1st time
+            leftValStr = runningNum
+            runningNum = ""
+            currentOperation = operation
+        }
     }
 
 }
