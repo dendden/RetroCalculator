@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         
         do {
             try btnSound = AVAudioPlayer.init(contentsOf: soundUrl)
+            btnSound.volume = 0.05
             btnSound.prepareToPlay()
         } catch let err as NSError {
             print(err.debugDescription)
